@@ -1,0 +1,8 @@
+<h1>Other users' books</h1>
+<ul>
+    <% books.forEach(item => { %>
+        <h2><%=item.book.title%></h2>
+        <img src="<%=item.book.imageLinks.smallThumbnail %>" alt="">   
+        <p>Owner: <%=item.username%></p>     
+    <% }) %>
+</ul>
