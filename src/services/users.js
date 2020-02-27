@@ -5,11 +5,11 @@ const createUser = async (user) => {
 
     // todo: validation on username and password
 
-
     try {
         user.hash = await argon2.hash(user.password)
     } catch (err) {
-        throw "Unable to hash password"
+        console.error(err)
+        throw new Error("Unable to hash password")
     }
     delete user.password    
 

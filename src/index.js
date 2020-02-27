@@ -39,7 +39,7 @@ app.get('/my-books', async (req, res) => {
     authenticate(req, res)
     let books
     try {
-        books = await bookService.getBooks(req.user)
+        books = await bookService.getBooks(req.user.username)
     } catch (err) {
         res.send(err)
     }
@@ -78,22 +78,30 @@ app.post('/sign-up', async (req, res) => {
     try {        
         userId = await userService.createUser(req.body)        
     } catch (err) {
-        res.send(err)
+        console.error(err)
+        res.send("Unable to create user - see logs")
     }  
     
-    req.login(userId, () => {
+    req.login({ id : userId, username: req.body.username }, () => {
         res.redirect('/')
     })
 })
 
 app.post('/add-book', async (req, res) => {
     authenticate(req, res)
+    let bookFound
     try {
-        await bookService.addBook(req.body.isbn, req.user.username)
-        res.send(`Book ${req.body.isbn} added`)
+        bookFound = await bookService.addBook(req.body.isbn, req.user.username)        
     } catch (err) {
-        res.send(err)
-    }           
+        console.error(err)
+        res.send("Unable to add book - see logs")
+    } 
+
+    if (bookFound) {
+        res.send(`Book ${req.body.isbn} added`)
+    } else {
+        res.send("Book not found")
+    }              
 })
 
 app.post('/logout', function (req, res){

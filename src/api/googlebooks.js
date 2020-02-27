@@ -10,14 +10,15 @@ const get = async (query) => {
         apiKey : process.env.GOOGLE_APIKEY
     }     
     
-    let data
+    let data = null
     try {
         ({ data } = await axios.get(baseUrl, { params : params }))
-    } catch (err) {
-        throw "Unable to find book"
+    } catch (err) {    
+        console.error(err)    
+        return null
     }
 
-    if (data.items[0]) {
+    if (data.totalItems > 0) {
         return data.items[0].volumeInfo
     } else {
         return null
