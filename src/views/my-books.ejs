@@ -1,0 +1,7 @@
+<h1>My Books</h1>
+<ul>
+    <% books.forEach(item => { %>
+        <h2><%=item.book.title%></h2>
+        <img src="<%=item.book.imageLinks.smallThumbnail %>" alt="">        
+    <% }) %>
+</ul>
