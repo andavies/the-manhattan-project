@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
+process.title = "my-library"
 
 app.set('views', './src/views')
 app.set('view engine', 'ejs')
