@@ -1,15 +1,15 @@
 version: 0.0
 os: linux
 files:
-    - source: /src
-        destination: /home/bitnami/app
+  - source: /src
+    destination: /home/bitnami/app
 hooks:
-    BeforeInstall:
+  BeforeInstall:
     - location: scripts/stop_server.sh
-        timeout: 300
-        runas: root
-    ApplicationStart:
+      timeout: 300
+      runas: root
+  ApplicationStart:
     - location: scripts/start_server.sh
-        timeout: 300
-        runas: ec2-user
+      timeout: 300
+      runas: root
     
