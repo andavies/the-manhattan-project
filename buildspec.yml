@@ -6,8 +6,5 @@ phases:
       - npm install
 artifacts:
   files:
-    - src/*
-    - src/**/*
-    - node_modules/*
-    - node_modules/**/*
+    - '**/*'
   name: my-library-$(date +%Y-%m-%d-%H:%M:%S).zip
