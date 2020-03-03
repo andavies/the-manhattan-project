@@ -7,7 +7,7 @@ permissions:
   - object: /
     pattern: "**"
     owner: ubuntu
-    group: ubuntu
+    group: root
 hooks:
   BeforeInstall:
     - location: scripts/stop_server.sh
