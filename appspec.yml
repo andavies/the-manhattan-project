@@ -6,8 +6,8 @@ files:
 permissions:
   - object: /
     pattern: "**"
-    owner: ubuntu
-    group: ubuntu
+    owner: bitnami
+    group: bitnami
 hooks:
   BeforeInstall:
     - location: scripts/stop_server.sh
