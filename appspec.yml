@@ -13,7 +13,8 @@ hooks:
     - location: scripts/stop_server.sh
       timeout: 300
       runas: root
-    - location: scripts/before_install.sh
+  AfterInstall:
+    - location: scripts/after_install.sh
       timeout: 300
       runas: root
   ApplicationStart:

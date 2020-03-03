@@ -1,1 +1,1 @@
-pkill --signal SIGINT my-library || true
+forever stopall || true
