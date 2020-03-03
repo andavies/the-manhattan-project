@@ -1,4 +1,4 @@
-export PATH=$PATH:/opt/bitnami/nodejs/bin/npm:/opt/bitnami/mongodb/bin/mongod
+export PATH=$PATH:/opt/bitnami/nodejs/bin/:/opt/bitnami/mongodb/bin/
 
 cd ~/app
 mongod --fork --logpath /var/log/mongod.log
