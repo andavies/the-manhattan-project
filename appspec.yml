@@ -6,15 +6,15 @@ files:
 permissions:
   - object: /
     pattern: "**"
-    owner: bitnami
-    group: bitnami
+    owner: root
+    group: root
 hooks:
   BeforeInstall:
     - location: scripts/stop_server.sh
       timeout: 300
-      runas: bitnami
+      runas: root
   ApplicationStart:
     - location: scripts/start_server.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
     
