@@ -1,1 +1,1 @@
-pkill --signal SIGINT my-library
+pkill --signal SIGINT my-library || true
