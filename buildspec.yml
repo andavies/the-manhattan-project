@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - aws s3 cp s3://my-library-env-files/.env ./.env
+
+artifacts:
+  files:
+    - '**/*'
+  name: my-library-$(date +%Y-%m-%d-%H:%M:%S).zip
