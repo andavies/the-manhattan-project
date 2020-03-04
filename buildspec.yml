@@ -1,5 +1,10 @@
 version: 0.2
 
+phases:
+  build:
+    commands:
+      - aws s3 cp s3://my-library-env-files/.env ./.env
+
 artifacts:
   files:
     - '**/*'
